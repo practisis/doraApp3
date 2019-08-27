@@ -23,7 +23,7 @@
 		var empresa = parametroURL2('empresa'); 
 		var idr = '';
 		if(id == 1){
-			ruta = 'index.html';
+			ruta = 'dashboard.html';
 			idr = '';
 		}else if(id == 2){
 			idr = "&idr=0";
