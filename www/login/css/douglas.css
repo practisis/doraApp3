@@ -1,0 +1,16 @@
+.w-auto{min-width: 50px; max-width: 300px}
+.p-l-5{padding-left:5px!important}
+.p-l-50{padding-left:50px!important}
+.p-r-5{padding-right:5px!important}
+.f-bold{font-weight: bold; color: #333;}
+.f-12{font-size: 12px}
+.f-18{font-size: 18px}
+.m-b-20{margin-bottom: 20px}
+.p-relative{position: relative;}
+.icon-input{position: absolute; left: 10px; top:4px; margin-bottom:2px;  border-right:1px solid #ccc; padding-right: 10px; font-size: 14px; color: #333}
+.div-btn-r{position: absolute; right: -16px}
+.btn-radius{padding: 6px 8px 2px 8px!important; border-radius: 50%}
+.tr-dark{background: #333333; color: #fff; }
+.p-8-20{padding: 8px 20px}
+.ph{margin:-31px!important; padding-top:20px;}
+.bgm-white{background: #fff!important}

@@ -1,0 +1,89 @@
+html{background-color:#fff !important}
+body{background-color:#fff !important}
+.row{margin:0 !important;}
+.breadcrumbs{display:none;}
+.title{padding:15px 0;}
+.col-lg-12{padding:0;}
+#hasta{display:block; margin-top:-20px; margin-left:-15px; border-top:1px solid #d9dce3 !important; width:102.5% !important; z-index: 7 !important}
+.menuItem{color:#898989 !important; font-size:24px;}
+#nav > li.open > a > i:before, #nav > li.active > a > i:before, #nav > li:hover > a > i:before {color:#da004c;}
+#nav > li:hover > a {background-color: #fff;}
+#nav > li > a {border-bottom:none;}
+#nav > li.open > a, #nav > li.active > a, #nav > li:hover > a {background-color: #fff;;}
+#nav > li > a > i {border-left:3px solid #fff;}
+#nav > li.active > a > i, #nav > li.open > a > i {border-left:3px solid #da004c;}
+#nav > li:hover > a > i {border-left:3px solid #da004c;}
+.top-header{background-color:#1b2030;}
+.clearfix{background-color:#1b2030;}
+.top-header .logo{background-color:#1b2030;}
+#dashboard_cuentas{padding:50px 20px 0 20px;  background-color: #f3f4f9 !important; height:auto;}
+.mini-box{border-bottom:2px solid #d9dadf; margin-bottom: 45px;}
+.bg-success{background-color:#00b088;}
+.bg-info{background-color:#00c2ce;}
+.bg-warning{background-color:#ffb700;}
+.bg-danger{background-color:#ff4a37;}
+.box-icon{margin:-50px 0 0 35% !important; float:none !important;}
+.box-info{text-align: center; padding-top:10px;}
+.size-h4{font-size:28px;}
+.text-muted{font-size:14px; color:#757779; padding-top:5px;}
+.success{color:#00b088;}
+.info{color:#00c2ce;}
+.warning{color:#ffb700;}
+.danger{color:#ff4a37;}
+.graficos{background-color:#FFF;}
+#stackchart1{border:1px solid #d9dce3; margin-left:20px; margin-bottom:30px !important;}
+#stackchart2{border:1px solid #d9dce3; margin-right:20px; margin-bottom:30px !important;}
+#combochart{border:1px solid #d9dce3; margin:40px 35px;}
+#fecha_new{text-align: left !important;}
+.btn-primary{background-color: #0057de; border:none; border-bottom:3px solid #0057de !important;}
+.btn-primary:hover{background-color: #0057de; border:none; border-bottom:3px solid #0057de !important;}
+.fecha-dashboard{background-color: #fff !important; box-shadow: inset 0 1px 1px rgba(0,0,0,.075) !important; border-left:none;}
+.datepicker{background-color: #fff !important;}
+.datepicker .datepicker-switch, .datepicker .next, .datepicker .prev, .datepicker tfoot tr th {background-color: #8f8f8f !important; border-radius:0;}
+.condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th{color:#303030;}
+.datepicker .datepicker-switch, .datepicker .next, .datepicker .prev, .datepicker tfoot tr th{color:#FFF !important;}
+.day{color:#303030;}
+.btn-success{background-color:#da004c !important; border:none; border-bottom: 3px solid #cf034b !important;}
+.btn-danger{background-color:#da004c !important; border:none; border-bottom: 3px solid #cf034b !important;}
+.panel-default>.panel-heading {border:0 !important; background-color:#f3f4f9 !important;}
+.panel{border:0 !important; box-shadow: none !important; z-index:8 !important;}
+.botones{padding:20px 0 !important;}
+.btn-new-version{ background-color: #2739bb !important; border:none !important; border-bottom:3px solid #2535b0 !important;}
+.btn-new-success{background-color: #5cb85c; border-color: #4cae4c; color: #fff;}
+.table-bordered>tbody>tr>th{background-color: #f3f4f9 !important;}
+#content{background-color:#fff;}
+.divider{border-bottom:1px solid #eef0f7 !important; width:101.5%; padding:0; margin-left:-10px;}
+input[type='text']{border-radius:3px !important;}
+.margin-top-20{margin-top:20px;}
+.margin-top-15{margin-top:15px;}
+.margin-left-10{margin-left:10px;}
+.btn-archive{background-color:#8795c6 !important; border:none; border-bottom:3px solid #7480ab !important;}
+.prim-header{background-color:#f3f4f9 !important; color:#1c1c1c !important;}
+.prim-header > th {border:1px solid #ddd;}
+#origLine{background-color:#fff !important;}
+.fondo{background-color:#f3f4f9 !important; padding:20px 15px 30px 15px !important; left:-15px; width:102.55%;}
+#diferencia, #totaldebe, #totalhaber{background:#f7f8fd !important; border-color:#d3d7df !important; text-align:center !important; padding:25px 0 !important; font-size:24px !important;}
+#diferencia{color:#8795c6 !important; font-weight: normal !important;}
+#totaldebe{color:#ff4a37 !important;}
+#totalhaber{color:#00b088 !important;}
+.submit2{color: #fff !important; background-color: #5cb85c !important; border-color: #4cae4c !important;}
+.btn-print{background-color:#ff8844 !important; border:none !important; border-bottom:3px solid #ff6c14 !important;}
+.removeLine{background-color:#9397a7 !important; color:#fff !important; border-radius:10px; font-size:18px; padding:0 4px !important; line-height: normal !important;}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{color:#009aad !important; }
+.nav-tabs>li>a{color:#b5b5b5 !important;}
+.tab-content{border-left:1px solid #d9dce3 !important; border-right:1px solid #d9dce3 !important; border-bottom:1px solid #d9dce3 !important; margin-bottom:10px;}
+.alert{margin:0 15px;}
+#directo, #tabdirecta{padding-bottom: 15px}
+#tablatarjetas{margin-left:15px !important; width:97.5% !important;}
+#cartera, #carteracxp, #tabcartera, #tabcarteracxc{min-height:150px !important;}
+table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {color:#1c1c1c;}
+.text-automatizada{color:#c0b9e7 !important;}
+.table>thead:first-child>tr:first-child>th {background-color:#f3f4f9 !important;}
+#btnActivate1,#btnActivate2,#btnActivate4,#btnActivate5,#btnActivate3{width:30%;}
+.toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; width:120px !important;}
+.toggle.ios .toggle-handle { border-radius: 15px;}
+#nav{background-color:#FFF; width:220px;}
+#nav-wrapper{border:0 !important;}
+.dynMenu{width:250px !important;}
+.nav-tabs>li{z-index: 8 !important;}
+/*.toggle{top:-5px !important;}*/

@@ -1,0 +1,372 @@
+
+    #divapp {
+
+        width: 220px;
+        /*  min-height:299px;
+      /*height: 10%; */
+        height: 230px;
+        -webkit-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.70);
+        -moz-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.70);
+        box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.70);
+
+        background-color: #fff;
+        padding: 10px;
+
+    }
+ 
+    .circulocomanda {
+        margin-left: 20%;
+        margin-top: 5%;
+        width: 120px;
+        height: 120px;
+        border-radius: 200px 200px 200px 200px;
+        -moz-border-radius: 200px 200px 200px 200px;
+        -webkit-border-radius: 200px 200px 200px 200px;
+        border: 0px solid #000000;
+
+    }
+
+    .iconcoman {
+
+        font-size: 80px;
+        color: #fff;
+        margin-left: 25%;
+        margin-top: 25%;
+    }
+
+    .circ-check {
+        position: absolute;
+        margin-left: -18%;
+        margin-top: -5%;
+        width: 25px;
+        height: 25px;
+        border-radius: 200px 200px 200px 200px;
+        -moz-border-radius: 200px 200px 200px 200px;
+        -webkit-border-radius: 200px 200px 200px 200px;
+        -webkit-box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75);
+    }
+
+    #iconcheckoff {
+        font-size: 12px;
+        margin-left: 26%;
+        margin-top: 24%;
+        color: #F0F1F1;
+
+
+    }
+
+    #titlevisor {
+        margin-top: 5%;
+        font-family: 'roboto bold', roboto, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        text-align: left;
+        font-size: 18px;
+        margin-left: 15px;
+
+    }
+
+    .txtcenter {
+        text-align: center;
+    }
+
+    .conteapp {
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+
+        flex-direction: row;
+    }
+
+    .conteapp>div {
+
+        margin: 1%;
+
+    }
+
+    #iconcuenta {
+        font-size: 80px;
+        color: #fff;
+        margin-left: 35%;
+        margin-top: 25%;
+    }
+
+    #btnejecutar,
+    .btndesactivarcmda,
+    .btnDesactivarVisor,.btnDesactivarMenu {
+
+        width: 120%;
+    }
+
+    @media (max-width: 700px) and (min-width: 300px) {
+        #btnejecutar,
+        .btndesactivarcmda,
+        .btnDesactivarVisor,.btnDesactivarMenu {
+
+            width: 100%;
+        }
+
+    }
+
+    #btn-comandas {
+        display: none;
+    }
+
+    .bgactivo {
+        background-color: #77BD5D;
+    }
+
+    .bgdesactivar {
+        background-color: #E1E5E6;
+
+    }
+
+    #btn-cuenta,#btn-menu {
+        display: none;
+    }
+
+    .circuentaVisual{
+        margin-left: 35% !important;
+    }
+    
+    .etiqueta{
+        width:124px;
+        height: 18px;
+        font-size: 11;
+        text-align: left;
+      
+        margin-left:25%;
+        margin-top: -10px;
+        font-family:'roboto bold', roboto, sans-serif;
+        font-style: normal;
+        margin-left: 15px;
+        margin-top: 2px;
+
+
+    }
+
+    .fa-dollar-sign{
+        margin-left: 35%;
+    }
+
+
+    /*ETIQUETAS DEL PLAN*/
+    .gratis{
+        
+        color: #40a11b;
+    }
+    .costo{
+        
+        color:#b18e27;
+    }
+    .plan{
+       
+        color: #683e97;
+    }
+
+    #headermodal{
+        background: url(../images/bgmodal.jpg) no-repeat;
+    }
+
+    .textmodal{
+
+        font-family: 'roboto bold', roboto, sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        text-align: left;
+        font-size: 25px;
+        color:black;
+    }
+
+    .textmonto{
+
+      
+        font-family: 'roboto bold', roboto, sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        text-align: center;
+        font-size: 15px;
+        color:#fff;  
+    }
+
+    .etiquetam{
+        background-color: #fff;
+        width:124px;
+        height: 18px;
+        font-size: 11;
+        text-align: center;
+      
+        margin-left:0%;
+ 
+        font-family:'roboto bold', roboto, sans-serif;
+font-style: normal;
+font-weight: 600;
+
+    }
+
+    .textdeveloper{
+        font-family: 'roboto bold', roboto, sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 14px;
+    }
+    .textdescrip{
+        font-family: 'roboto bold', roboto, sans-serif;
+        font-style: normal;
+        font-size: 14px;
+    }
+
+    #modal-footer{
+background-color:#F1F1F1; 
+    }
+
+    .textturascap{
+        font-family: 'roboto bold', roboto, sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 14px;
+        text-align: left;
+
+    }
+
+    .imagenesmodal {
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+
+        flex-direction: row;
+    }
+
+    .imgcss{
+
+width: 200px;
+height: 210px;
+
+    }
+    #imgcss{
+        width: 200px;
+height: 200px;
+min-width: 200px;
+max-width: 100%;
+min-height: 152px;
+height: auto;
+    }
+
+
+    #headermodal{
+
+        height: 200px;
+        
+       
+       
+       }
+       .imagenshow{
+        height: auto;
+        max-width: 890px;
+       }
+       
+        .iconomodal{
+           font-size: 80px;
+               color: #fff;
+              margin-left: 45%;
+         
+       }
+
+
+       .classContable{
+        background: url(../images/doraicono.png) no-repeat;
+        width: 100px;
+        height: 120px;
+        margin-left: 18%;
+        margin-top: 0%;
+        background-position: 0px 20px;
+    }
+
+    
+    .classTerminable{
+        width: 110px;
+        height: 120px;
+        margin-left: 8%;
+        margin-top: 8%;
+        position: absolute;
+
+        background-size: 50%;
+        background: url(../images/terminalesicono.png) no-repeat;
+    }
+
+    #classContable{
+        margin-left: 43%;
+        margin-top: -5%;
+        padding-top: 0%;
+
+    }
+
+    #classTerminable{
+        margin-left: 43%;
+        margin-top: -5%;
+        padding-top: 0%;
+
+        position: relative;
+    }
+
+/*BUSCADOR*/
+
+#logo {
+color: #666;
+width:100%;   
+}
+#logo h1 {
+font-size: 60px;
+text-shadow: 1px 2px 3px #999;
+font-family: Roboto, sans-serif;
+font-weight: 700;
+letter-spacing: -1px;
+}
+#logo p{
+padding-bottom: 20px;
+}
+
+
+#form-buscar >.form-group >.input-group > .form-control {
+height: 40px;
+}
+#form-buscar >.form-group >.input-group > .input-group-btn > .btn{
+   height: 40px; 
+   font-size: 16px;
+   font-weight: 300; 
+    
+  
+}
+#form-buscar >.form-group >.input-group > .input-group-btn > .btn .glyphicon{
+margin-right:12px;   
+}    
+
+
+#form-buscar >.form-group >.input-group > .form-control {
+font-size: 16px;
+font-weight: 300;
+
+}
+
+#form-buscar >.form-group >.input-group > .form-control:focus {
+border-color: #33A444;
+outline: 0;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 1px rgba(0, 109, 0, 0.8);
+     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 1px rgba(0, 109, 0, 0.8);
+}
+
+#headerbutton{
+    margin-left: 100%;
+}
+
+.imagen{
+    margin-left: 0px;
+}
+
+.btn-monto{background: #3992e6; border:1px solid #1770c4; color:#fff}
+.btn-monto{background: #3992e6; border:1px solid #1770c4; color:#fff}
+.btn-monto:focus{background: #4aa3f7; border:1px solid #2881d5;color:#fff}
+.btn-monto:hover{background: #4aa3f7; border:1px solid #2881d5;color:#fff}
+.btn-monto:active{background: #2881d5!important; border:1px solid #0660b3!important;}
