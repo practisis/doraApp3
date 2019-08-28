@@ -171,7 +171,7 @@
 									</span>
 								</a>
 							</div>
-							<input type = 'hidden' id = 'detectorInternet'  />
+							<input type = 'hidden' id = 'detectorInternet'  style="position:relative;z-index:30000;color:#000;" value = "1"/>
 							<!---<div style='color:white; position:absolute; left:230px; margin-top:15px;background-color:#2ec1cc; padding:5px; border-radius:3px; font-size:11px;'>
 								<label class='glyphicon glyphicon-warning-sign'></label>&nbsp;&nbsp;Debido a mantenimiento programado, se restringirá el acceso al sistema web el día domingo 7 de Mayo, de 7:00 am a 8:00 am.
 							</div>--->
@@ -249,6 +249,14 @@
 											</a>
 										</li>	
 									</ul>
+								</li>
+								<li>
+									<a onclick = "enviarRuta(5)" >
+										<i style="color: rgb(255, 255, 255); left: 170px;" class="icon-iconodora-09 menuItem">
+											<span class="icon-bg bg-transparent"></span>
+										</i>
+										<span data-i18n="Cerrar Sesión"></span>SALIR
+									</a>
 								</li>
 							</ul>
 						
@@ -453,30 +461,36 @@
 	$(document).ready(function(){
 		var idr = parametroURL2('idr'); 
 		if(idr > 0){
-			setTimeout(function(){
-				$('#cargando').css('display','block');
-				$('#cargando2').css('display','block');
-				// alert('tiene sub querys');
-				var idEmp = parametroURL('idEmp');
-				var direccion = parametroURL('direccion'); 
-				var ident = 1;
-				$.post("https://www.practisis.online/contabilidad/apiDoraApp/apiReportes.php",{ 
-					idr : idr , idEmp : idEmp , direccion : direccion , ident : ident
-				}).done(function(data){
-					// alert(data)
-					$('#cargando').css('display','none');
-					$('#cargando2').css('display','none');
-					if(data == 'error'){
-						alert ( "Oops , hay un error con el reporte que deseas ver, por favor contactate con soporte para que solucionen el inconveniente " );
-					}else{
-						$('#recibeCampoCombo').html(data);
-					}
-				}).fail(function(xhr, status, error) {
-					$('#cargando').css('display','none');
-					$('#cargando2').css('display','none');
-					swal ( "Oops" ,  "Hay un error en tu reporte  "+status+" "+error+" " ,  "error" )
-				});	
-			}, 1000);
+			var detectorInternet = $('#detectorInternet').val();
+			if(detectorInternet == 1){
+				setTimeout(function(){
+					$('#cargando').css('display','block');
+					$('#cargando2').css('display','block');
+					// alert('tiene sub querys');
+					var idEmp = parametroURL('idEmp');
+					var direccion = parametroURL('direccion'); 
+					var ident = 1;
+					$.post("https://www.practisis.online/contabilidad/apiDoraApp/apiReportes.php",{ 
+						idr : idr , idEmp : idEmp , direccion : direccion , ident : ident
+					}).done(function(data){
+						// alert(data)
+						$('#cargando').css('display','none');
+						$('#cargando2').css('display','none');
+						if(data == 'error'){
+							alert ( "Oops , hay un error con el reporte que deseas ver, por favor contactate con soporte para que solucionen el inconveniente " );
+						}else{
+							$('#recibeCampoCombo').html(data);
+						}
+					}).fail(function(xhr, status, error) {
+						$('#cargando').css('display','none');
+						$('#cargando2').css('display','none');
+						detectarConexion();
+						swal ( "Oops" ,  "No hay conexión a internet" ,  "error" )
+					});	
+				}, 1000);
+			}else{
+				swal ( "Oops" ,  "No hay conexión a internet" ,  "error" )
+			}
 		}
 	});
 	
@@ -498,9 +512,23 @@
 		}else if(id == 4){
 			ruta = 'balance.html';
 			idr = '';
+		}else if(id == 5){
+			
+			ruta = 'login/login.html';
+			idr = '';
+			
 		}
 		
-		window.location = ""+ruta+"?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+""+idr+"";
+		if(id != 5){
+			window.location = ""+ruta+"?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+""+idr+"";
+		}else{
+			setTimeout(function(){
+				sessionStorage.clear();
+				console.log('local storage limpia');
+				window.location = ""+ruta+"?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+""+idr+"";
+			}, 500);
+		}
+		
 	}
 	function titleLeft() {
 		var $container = $('#stackchart2');    
