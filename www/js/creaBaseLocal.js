@@ -35,83 +35,86 @@
 	
 	
 	function verReporteID(idr){
-		
-		var d = new Date();
+		var detectorInternet = $('#detectorInternet').val();
+		if(detectorInternet == 1){
+			var d = new Date();
 
-		var month = d.getMonth()+1;
-		var day = d.getDate();
+			var month = d.getMonth()+1;
+			var day = d.getDate();
 
-		var output1 = d.getFullYear() + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '0' : '') + day; 
-		
-		var d2 = new Date();
+			var output1 = d.getFullYear() + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '0' : '') + day; 
+			
+			var d2 = new Date();
 
-		var month2 = d2.getMonth();
-		var day2 = d2.getDate();
-		
-		var output2 = d2.getFullYear() + '/' + (month2<10 ? '0' : '') + month2 + '/' + (day2<10 ? '0' : '') + day2; 
+			var month2 = d2.getMonth();
+			var day2 = d2.getDate();
+			
+			var output2 = d2.getFullYear() + '/' + (month2<10 ? '0' : '') + month2 + '/' + (day2<10 ? '0' : '') + day2; 
 
 
-		$('#cargaReportes').html('');
-		var db = window.openDatabase("Database", "1.0", "appDora", 200000);
-		db.transaction(function(tx){
-			tx.executeSql('select id , nombre , inputs , campo_combo , combo_local , todos_local from reportess where id = ? order by nombre asc',[idr],function(tx,results){
-				var registro = results.rows.length;
-				//alert(registro);
-				
-				var tr = '';
-				for(var j = 0; j < registro; j++){
-				
-					var row1 = results.rows.item(j);
+			$('#cargaReportes').html('');
+			var db = window.openDatabase("Database", "1.0", "appDora", 200000);
+			db.transaction(function(tx){
+				tx.executeSql('select id , nombre , inputs , campo_combo , combo_local , todos_local from reportess where id = ? order by nombre asc',[idr],function(tx,results){
+					var registro = results.rows.length;
+					//alert(registro);
 					
-					var nombre = row1.nombre;
-					var id = row1.id;
-					var inputs = row1.inputs;
-					var campo_combo = row1.campo_combo;
-					var combo_local = row1.combo_local;
-					var todos_local = row1.todos_local;
+					var tr = '';
+					for(var j = 0; j < registro; j++){
 					
-					var expInputs = inputs.split('@');
-					var n=0;
-					tr += "<div class='col-md-12'>\
-								<label>Nombre : </label> "+nombre+" \
-							</div><br>";
-							
-					$.each(expInputs, function(key, val) {
-						// alert(val[0]);
-						if(val[0] == 1){
-							if(n==0){
-								tr += "	<div class='col-md-2'>\
-											<label>Fecha Inicial:</label><br/><input type='text' id='fecha_inicial' class='form-control datepicker' name='fecha_inicial' readonly style='font-size:12px;font-family: Arial;' value='"+output2+"'/>\
-										</div>";
-							}else if (n==1){
-								tr += "	<div class='col-md-2'>\
-											<label>Hora Inicial:</label><br/><input type='text' id='hora_inicial' class='form-control' name='hora_inicial' style='font-size:12px;font-family: Arial;' value='00:00:00'/>\
-										</div>";
-							}else if (n == 2){
-								tr += "	<div class='col-md-2'>\
-											<label>Fecha Final:</label><br/><input type='text' id='fecha_final' class='form-control datepicker' name='fecha_final' style='font-size:12px; font-family: Arial;' readonly value='"+output1+"'/>\
-										</div>";
-							}else if (n == 3){
-								tr += "	<div class='col-md-2'>\
-											<label>Hora Final:</label><br/><input type='text' id='hora_final' class='form-control' name='hora_final' style='font-size:12px;font-family: Arial;' value='23:59:59'/>\
-										</div>";
+						var row1 = results.rows.item(j);
+						
+						var nombre = row1.nombre;
+						var id = row1.id;
+						var inputs = row1.inputs;
+						var campo_combo = row1.campo_combo;
+						var combo_local = row1.combo_local;
+						var todos_local = row1.todos_local;
+						
+						var expInputs = inputs.split('@');
+						var n=0;
+						tr += "<div class='col-md-12'>\
+									<label>Nombre : </label> "+nombre+" \
+								</div><br>";
+								
+						$.each(expInputs, function(key, val) {
+							// alert(val[0]);
+							if(val[0] == 1){
+								if(n==0){
+									tr += "	<div class='col-md-2'>\
+												<label>Fecha Inicial:</label><br/><input type='text' id='fecha_inicial' class='form-control datepicker' name='fecha_inicial' readonly style='font-size:12px;font-family: Arial;' value='"+output2+"'/>\
+											</div>";
+								}else if (n==1){
+									tr += "	<div class='col-md-2'>\
+												<label>Hora Inicial:</label><br/><input type='text' id='hora_inicial' class='form-control' name='hora_inicial' style='font-size:12px;font-family: Arial;' value='00:00:00'/>\
+											</div>";
+								}else if (n == 2){
+									tr += "	<div class='col-md-2'>\
+												<label>Fecha Final:</label><br/><input type='text' id='fecha_final' class='form-control datepicker' name='fecha_final' style='font-size:12px; font-family: Arial;' readonly value='"+output1+"'/>\
+											</div>";
+								}else if (n == 3){
+									tr += "	<div class='col-md-2'>\
+												<label>Hora Final:</label><br/><input type='text' id='hora_final' class='form-control' name='hora_final' style='font-size:12px;font-family: Arial;' value='23:59:59'/>\
+											</div>";
+								}
+								
 							}
-							
-						}
-						n++;
-					}); 
-					tr += "<div id = 'recibeCampoCombo' >!</div>";
-				}
-				
-				tr += "	<div class='col-md-2' style = 'text-align:right;'><br>\
-							<button type='button' style='margin:3px;' class='btn btn-danger' onclick='Ejecutar("+idr+");'>EJECUTAR</button>\
-							<button type='button' style='margin:3px;' class='btn btn-default' onclick='enviarRuta(2)'>REGRESAR</button>\
-						</div>";
-				$('#cargaReportes').html(tr);
-				
-			},errorCB,successCB);
-		});
-		
+							n++;
+						}); 
+						tr += "<div id = 'recibeCampoCombo' >!</div>";
+					}
+					
+					tr += "	<div class='col-md-2' style = 'text-align:right;'><br>\
+								<button type='button' style='margin:3px;' class='btn btn-danger' onclick='Ejecutar("+idr+");'>EJECUTAR</button>\
+								<button type='button' style='margin:3px;' class='btn btn-default' onclick='enviarRuta(2)'>REGRESAR</button>\
+							</div>";
+					$('#cargaReportes').html(tr);
+					
+				},errorCB,successCB);
+			});
+		}else{
+			swal ( "Oops" ,  "No hay conexión a internet" ,  "error" )
+		}
 	}
 	
 	function Ejecutar(idr){
@@ -147,41 +150,38 @@
 		});	
 	}
 	function verReportes_(){
-		$('#boletos_entrados').html('<tr><td colspan = "3" >Espere Cargando </td></tr>');
-		var db = window.openDatabase("Database", "1.0", "appDora", 200000);
-		db.transaction(function(tx){
-			tx.executeSql('select id , nombre from reportess order by nombre asc',[],function(tx,results){
-				var registro = results.rows.length;
-				//alert(registro);
-				
-				var tr = '';
-				
-				tr += '<tr  ><th colspan = "3" style = "border :1px solid #4a4a4a" >Reportes </th></tr>\
-						<tr><th style = "border :1px solid #4a4a4a" >Id</th><th style = "border :1px solid #4a4a4a" >Nombre</th><th style = "border :1px solid #4a4a4a" >Opciones</th></tr>\
-					';
-				
-				
-				for(var j = 0; j < registro; j++){
-				
-					var row1 = results.rows.item(j);
-					var nombre = row1.nombre;
-					var id = row1.id;
-					tr += '	<tr class = "localidadesBajadas" >\
-								<td style = "border :1px solid #4a4a4a" >\
-									'+id+'</td>\
-								<td style = "text-align:left !important;border :1px solid #4a4a4a">\
-									'+nombre+'\
-								</td>\
-								<td style = "text-align:center;border :1px solid #4a4a4a">\
-									<button type="button" class="btn btn-default" onclick = "verReporteIndividual('+id+')" >Ver</button>\
-								</td>\
-							</tr>';
+		var detectorInternet = $('#detectorInternet').val();
+		if(detectorInternet == 1){
+			$('#boletos_entrados').html('<tr><td colspan = "3" >Espere Cargando </td></tr>');
+			var db = window.openDatabase("Database", "1.0", "appDora", 200000);
+			db.transaction(function(tx){
+				tx.executeSql('select id , nombre from reportess order by nombre asc',[],function(tx,results){
+					var registro = results.rows.length;
+					var tr = '';
+					tr += '<tr  ><th colspan = "3" style = "border :1px solid #4a4a4a" >Reportes </th></tr>\
+							<tr><th style = "border :1px solid #4a4a4a" >Id</th><th style = "border :1px solid #4a4a4a" >Nombre</th><th style = "border :1px solid #4a4a4a" >Opciones</th></tr>\
+						';
+					for(var j = 0; j < registro; j++){
 					
-				}
-				$('#boletos_entrados').html(tr);
-				
-			},errorCB,successCB);
-		});
-		
-		
+						var row1 = results.rows.item(j);
+						var nombre = row1.nombre;
+						var id = row1.id;
+						tr += '	<tr class = "localidadesBajadas" >\
+									<td style = "border :1px solid #4a4a4a" >\
+										'+id+'</td>\
+									<td style = "text-align:left !important;border :1px solid #4a4a4a">\
+										'+nombre+'\
+									</td>\
+									<td style = "text-align:center;border :1px solid #4a4a4a">\
+										<button type="button" class="btn btn-default" onclick = "verReporteIndividual('+id+')" >Ver</button>\
+									</td>\
+								</tr>';
+					}
+					$('#boletos_entrados').html(tr);
+					
+				},errorCB,successCB);
+			});
+		}else{
+			swal ( "Oops" ,  "No hay conexión a internet" ,  "error" )
+		}
 	}
