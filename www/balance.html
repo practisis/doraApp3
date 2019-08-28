@@ -250,6 +250,14 @@
 										</li>	
 									</ul>
 								</li>
+								<li>
+									<a onclick = "enviarRuta(5)" >
+										<i style="color: rgb(255, 255, 255); left: 170px;" class="icon-iconodora-09 menuItem">
+											<span class="icon-bg bg-transparent"></span>
+										</i>
+										<span data-i18n="Cerrar Sesión"></span>SALIR
+									</a>
+								</li>
 							</ul>
 						
 							<div class="slimScrollBar" style="background: none repeat scroll 0% 0% rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 607px;"></div>
@@ -349,7 +357,7 @@
 											</div>
 											<div class="col-md-3" style="vertical-align:bottom;">
 												<br>
-												<button type="button" style="margin:3px;" class="btn btn-success btn-danger-old" onclick="Ejecutar();">Ejecutar</button>
+												<button type="button" style="margin:3px;" class="btn btn-success btn-danger-old" onclick="Ejecutar_balance();">Ejecutar</button>
 											</div>
 										</div>
 									</div>
@@ -406,7 +414,7 @@
 <script type="text/javascript" src="js/Chart.bundle.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
-	function Ejecutar(){
+	function Ejecutar_balance(){
 		var detectorInternet = $('#detectorInternet').val();
 		if(detectorInternet == 1){
 			var idEmp = parametroURL('idEmp');
@@ -428,14 +436,15 @@
 				$('#cargando').css('display','none');
 				$('#cargando2').css('display','none');
 				if(data == 'error'){
-					alert ( "Oops , hay un error con el reporte que deseas ver, por favor contactate con soporte para que solucionen el inconveniente " );
+					swal ( "Oops" ,  "Hay un error en tu reporte " ,  "error" )
 				}else{
 					$('#recibeReporteDetalle').html(data);
 				}
 			}).fail(function(xhr, status, error) {
 				$('#cargando').css('display','none');
 				$('#cargando2').css('display','none');
-				swal ( "Oops" ,  "Hay un error en tu reporte  "+status+" "+error+" " ,  "error" )
+				detectarConexion();
+				swal ( "Oops" ,  "No hay conexión a internet" ,  "error" )
 			});	
 		}else{
 			swal ( "Oops" ,  "No hay conexión a internet" ,  "error" )
@@ -478,9 +487,23 @@
 		}else if(id == 4){
 			ruta = 'balance.html';
 			idr = '';
+		}else if(id == 5){
+			
+			ruta = 'login/login.html';
+			idr = '';
+			
 		}
 		
-		window.location = ""+ruta+"?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+""+idr+"";
+		if(id != 5){
+			window.location = ""+ruta+"?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+""+idr+"";
+		}else{
+			setTimeout(function(){
+				sessionStorage.clear();
+				console.log('local storage limpia');
+				window.location = ""+ruta+"?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+""+idr+"";
+			}, 500);
+		}
+		
 	}
 	function titleLeft() {
 		var $container = $('#stackchart2');    
