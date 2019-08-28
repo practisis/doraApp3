@@ -118,36 +118,42 @@
 	}
 	
 	function Ejecutar(idr){
-		var idEmp = parametroURL('idEmp');
-		var direccion = parametroURL('direccion'); 
-		var fecha_inicial = $('#fecha_inicial').val();
-		var hora_inicial = $('#hora_inicial').val();
-		var fecha_final = $('#fecha_final').val();
-		var hora_final = $('#hora_final').val();
-		var campocombo = $('#campocombo').val();
-		var comboLocal = $('#comboLocal').val();
-		var ident = 2;
-		var ejecutarquery = 1;
-		$('#recibeReporteDetalle').html('<center><h3>Espere cargando informacion!!!</h3></center>');
-		$('#cargando').css('display','block');
-		$('#cargando2').css('display','block');
-		$.post("https://www.practisis.online/contabilidad/apiDoraApp/apiReportes.php",{ 
-			idr : idr , idEmp : idEmp , direccion : direccion , ident : ident , fecha_inicial : fecha_inicial , hora_inicial : hora_inicial , 
-			hora_final : hora_final , campocombo : campocombo , comboLocal : comboLocal , fecha_final : fecha_final , ejecutarquery : ejecutarquery
-		}).done(function(data){
-			// alert(data)
-			$('#cargando').css('display','none');
-			$('#cargando2').css('display','none');
-			if(data == 'error'){
-				alert ( "Oops , hay un error con el reporte que deseas ver, por favor contactate con soporte para que solucionen el inconveniente " );
-			}else{
-				$('#recibeReporteDetalle').html(data);
-			}
-		}).fail(function(xhr, status, error) {
-			$('#cargando').css('display','none');
-			$('#cargando2').css('display','none');
-			swal ( "Oops" ,  "Hay un error en tu reporte  "+status+" "+error+" " ,  "error" )
-		});	
+		var detectorInternet = $('#detectorInternet').val();
+		if(detectorInternet == 1){
+			var idEmp = parametroURL('idEmp');
+			var direccion = parametroURL('direccion'); 
+			var fecha_inicial = $('#fecha_inicial').val();
+			var hora_inicial = $('#hora_inicial').val();
+			var fecha_final = $('#fecha_final').val();
+			var hora_final = $('#hora_final').val();
+			var campocombo = $('#campocombo').val();
+			var comboLocal = $('#comboLocal').val();
+			var ident = 2;
+			var ejecutarquery = 1;
+			$('#recibeReporteDetalle').html('<center><h3>Espere cargando informacion!!!</h3></center>');
+			$('#cargando').css('display','block');
+			$('#cargando2').css('display','block');
+			$.post("https://www.practisis.online/contabilidad/apiDoraApp/apiReportes.php",{ 
+				idr : idr , idEmp : idEmp , direccion : direccion , ident : ident , fecha_inicial : fecha_inicial , hora_inicial : hora_inicial , 
+				hora_final : hora_final , campocombo : campocombo , comboLocal : comboLocal , fecha_final : fecha_final , ejecutarquery : ejecutarquery
+			}).done(function(data){
+				// alert(data)
+				$('#cargando').css('display','none');
+				$('#cargando2').css('display','none');
+				if(data == 'error'){
+					alert ( "Oops , hay un error con el reporte que deseas ver, por favor contactate con soporte para que solucionen el inconveniente " );
+				}else{
+					$('#recibeReporteDetalle').html(data);
+				}
+			}).fail(function(xhr, status, error) {
+				$('#cargando').css('display','none');
+				$('#cargando2').css('display','none');
+				detectarConexion();
+				swal ( "Oops" ,  "No hay conexión a internet" ,  "error" )
+			});	
+		}else{
+			swal ( "Oops" ,  "No hay conexión a internet" ,  "error" )
+		}
 	}
 	function verReportes_(){
 		var detectorInternet = $('#detectorInternet').val();
