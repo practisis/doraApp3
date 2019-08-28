@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>DASHBOARD 2  Dora 4.0 - EC</title>
+<title>DASHBOARD Dora 4.0 - EC</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 
@@ -164,9 +164,9 @@
 								<i class="fa fa-bars"></i>
 							</a>
 							<div class="logo">
-								<a href="https://www.practisis.net/contabilidad/">
+								<a href="dashboard.html">
 									<span>
-										<img src="https://www.practisis.net/contabilidad/logos/logodora.png" alt="Logo" style="width:110px; margin-top:-5px;">&nbsp;<span style="font-size:9px;" id = "numeroBase"></span>
+										<img src="gfx/logodora.png" alt="Logo" style="width:110px; margin-top:-5px;">&nbsp;<span style="font-size:9px;" id = "numeroBase"></span>
 									</span>
 								</a>
 							</div>
@@ -802,7 +802,7 @@
 		var idEmp = parametroURL('idEmp');
 		var direccion = parametroURL('direccion');
 		var empresa = parametroURL('empresa');
-		<!--  alert(idEmp + ' <<>> ' + direccion); -->
+		<!-- alert(idEmp + ' <<>> ' + direccion); -->
 		
 		var detectorInternet = $('#detectorInternet').val();
 		if(detectorInternet == 1){
@@ -890,7 +890,7 @@
 		clearInterval(t);
 		t=setInterval(function(){
 			checksession();
-		}, 60000);*/
+		}, 15000);*/
 
 		$('.datepicker').datepicker({dateFormat: 'yy-mm-dd',format:'yyyy-mm-dd',changeMonth: true,
 		changeYear: true});
@@ -1023,7 +1023,13 @@ function vermsjinter(){
 			<!-- alert(idEmp + ' <<>> ' + direccion + ' >>>< ' + empresa); -->
 			$('#nombreEmpresa').html(empresa);
 			$('#numeroBase').html(idEmp);
-			obtenerDatosDashboard();
+			var idEmpre = localStorage.getItem("idEmp"); 
+			if(idEmpre == ''){
+				window.location = 'login/login.html';
+			}else{
+				obtenerDatosDashboard();
+			}
+			
 			
 			
 			$('#nav-container').removeAttr( 'style' );
@@ -1055,7 +1061,7 @@ function vermsjinter(){
 	}
 	setInterval(function () {
 		detectarConexion();
-	}, 60000);
+	}, 15000);
 </script>
 
 
