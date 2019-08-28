@@ -304,6 +304,14 @@
 										</li>	
 									</ul>
 								</li>
+								<li>
+									<a onclick = "enviarRuta(5)" >
+										<i style="color: rgb(255, 255, 255); left: 170px;" class="icon-iconodora-09 menuItem">
+											<span class="icon-bg bg-transparent"></span>
+										</i>
+										<span data-i18n="Cerrar Sesión"></span>SALIR
+									</a>
+								</li>
 							</ul>
 						
 							<div class="slimScrollBar" style="background: none repeat scroll 0% 0% rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 607px;"></div>
@@ -629,9 +637,23 @@
 		}else if(id == 4){
 			ruta = 'balance.html';
 			idr = '';
+		}else if(id == 5){
+			
+			ruta = 'login/login.html';
+			idr = '';
+			
 		}
 		
-		window.location = ""+ruta+"?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+""+idr+"";
+		if(id != 5){
+			window.location = ""+ruta+"?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+""+idr+"";
+		}else{
+			setTimeout(function(){
+				sessionStorage.clear();
+				console.log('local storage limpia');
+				window.location = ""+ruta+"?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+""+idr+"";
+			}, 500);
+		}
+		
 	}
 	function titleLeft() {
 		var $container = $('#stackchart2');    
