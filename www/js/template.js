@@ -202,7 +202,7 @@ $(document).ready(function(){
 					if($(this).css('display')!='none'){
 						menu += '<li style="text-align: left;"><a style="padding: 0px;" onclick = "enviarRuta2('+contador+')" >'+ newHTML.html() +'</a></li>';
 					}
-					contador++;
+					contador++; 
 				});
 					
 				$(this).find('i:first').append('<div class="dynMenu" style="background-color: #f1f1f1; color: #333333; left: 50px; width: 200px; font-family:Lato,Roboto,Arial; box-shadow: 1px 0px 6px 0px rgba(50, 50, 50, 0.64); top:0px; position: absolute; z-index: 999999;"><ul style="display: block;">'+ menu +'</ul></div>');
@@ -248,31 +248,7 @@ $(document).ready(function(){
 				}
 			}
 		else{
-			//event.stopPropagation();
-			/*if($(this).closest('li').children('ul').length > 0){
-				$('.dynMenu').remove();
-				var menu = '';
-				$(this).closest('li').children('ul').children('li').each(function(){
-					var getHTML = $(this).html();
-					var newHTML = $(getHTML);
-					newHTML.find('i').css({'padding' : '0px', 'padding-left' : '10px', 'padding-right' : '10px', 'text-align' : 'left'});
-					
-					menu += '<li style="text-align: left;">'+ newHTML.html() +'</li>';
-					});
-					
-				$(this).find('i:first').append('<div class="dynMenu" style="background-color: #f1f1f1; color: #333333; left: 50px; width: 200px; font-family: Roboto,Arial,Helvetica,sans-serif; box-shadow: 1px 0px 6px 0px rgba(50, 50, 50, 0.64); top:0px; position: absolute; z-index: 999999;"><ul style="display: block;">'+ menu +'</ul></div>');
-				
-				
-				var wheight=$(window).height();
-				var topmenu=$('.dynMenu').offset().top;
-				var mheight=$('.dynMenu').height();
-				
-				if(topmenu+mheight>wheight){
-					var diff=wheight-(topmenu+mheight)-50;
-					$('.dynMenu').animate({top:diff},600,function(){});
-				}
-				
-				}*/
+			
 			}
 		});
 		
