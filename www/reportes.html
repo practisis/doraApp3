@@ -165,9 +165,9 @@
 								<i class="fa fa-bars"></i>
 							</a>
 							<div class="logo">
-								<a href="https://www.practisis.net/contabilidad/">
+								<a href="dashboard.html">
 									<span>
-										<img src="https://www.practisis.net/contabilidad/logos/logodora.png" alt="Logo" style="width:110px; margin-top:-5px;">&nbsp;<span style="font-size:9px;" id = "numeroBase"></span>
+										<img src="gfx/logodora.png" alt="Logo" style="width:110px; margin-top:-5px;">&nbsp;<span style="font-size:9px;" id = "numeroBase"></span>
 									</span>
 								</a>
 							</div>
@@ -440,6 +440,9 @@
 		
     </body>
 </html>
+<script src="js/bootstrap-toggle.min.js"></script>
+<script type="text/javascript" src="js/sweetalert/sweetalert.min.js"></script>
+<script src="js/custom-file-input.js"></script>
 
 <script type="text/javascript" src="js/template.js"></script>
 <script type="text/javascript" src="js/creaBaseLocal.js"></script>
@@ -476,13 +479,7 @@
 			}, 1000);
 		}
 	});
-	if(idr > 0){
-		<!-- alert('es reporte individual') -->
-		verReporteID(idr);
-	}else{
-		<!-- alert('es general') -->
-		verReportes_();
-	}
+	
 	function enviarRuta(id){
 		<!-- alert(id); -->
 		var idEmp = parametroURL('idEmp');
@@ -762,7 +759,7 @@
 		clearInterval(t);
 		t=setInterval(function(){
 			checksession();
-		}, 60000);*/
+		}, 15000);*/
 
 		$('.datepicker').datepicker({dateFormat: 'yy-mm-dd',format:'yyyy-mm-dd',changeMonth: true,
 		changeYear: true});
@@ -896,7 +893,13 @@ function vermsjinter(){
 			$('#nombreEmpresa').html(empresa);
 			$('#numeroBase').html(idEmp);
 			
-			
+			if(idr > 0){
+				<!-- alert('es reporte individual') -->
+				verReporteID(idr);
+			}else{
+				<!-- alert('es general') -->
+				verReportes_();
+			}
 			
 			$('#nav-container').removeAttr( 'style' );
 			$('#nav-container').css('background-color','transparent');
@@ -924,12 +927,5 @@ function vermsjinter(){
 	}
 	setInterval(function () {
 		detectarConexion();
-	}, 60000);
+	}, 15000);
 </script>
-
-
-
-
-<script src="js/bootstrap-toggle.min.js"></script>
-<script type="text/javascript" src="js/sweetalert/sweetalert.min.js"></script>
-<script src="js/custom-file-input.js"></script>
