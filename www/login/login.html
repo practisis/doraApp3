@@ -209,7 +209,11 @@
 						var idEmp = splitResponse[0];
 						var direccion = splitResponse[2];
 						var empresa = splitResponse[1];
-							<!-- alert("si esta todo bien " + response) -->
+						
+						localStorage.setItem("idEmp", idEmp);
+						localStorage.setItem("direccion", direccion);
+						localStorage.setItem("empresa", empresa);
+						
 						window.location = "../dashboard.html?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+"";
 					}
 				}).fail(function(xhr, status, error) {
@@ -234,7 +238,7 @@
 	}
 	setInterval(function () {
 		detectarConexion();
-	}, 60000);
+	}, 15000);
 </script>
 
 </body>
