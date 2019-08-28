@@ -165,9 +165,9 @@
 								<i class="fa fa-bars"></i>
 							</a>
 							<div class="logo">
-								<a href="https://www.practisis.net/contabilidad/">
+								<a href="dashboard.html">
 									<span>
-										<img src="https://www.practisis.net/contabilidad/logos/logodora.png" alt="Logo" style="width:110px; margin-top:-5px;">&nbsp;<span style="font-size:9px;" id = "numeroBase"></span>
+										<img src="gfx/logodora.png" alt="Logo" style="width:110px; margin-top:-5px;">&nbsp;<span style="font-size:9px;" id = "numeroBase"></span>
 									</span>
 								</a>
 							</div>
@@ -397,40 +397,49 @@
     </body>
 </html>
 
+<script src="js/bootstrap-toggle.min.js"></script>
+<script type="text/javascript" src="js/sweetalert/sweetalert.min.js"></script>
+<script src="js/custom-file-input.js"></script>
+
 <script type="text/javascript" src="js/template.js"></script>
 <script type="text/javascript" src="js/creaBaseLocal.js"></script>
 <script type="text/javascript" src="js/Chart.bundle.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
 	function Ejecutar(){
-		var idEmp = parametroURL('idEmp');
-		var direccion = parametroURL('direccion'); 
-		var fecha_inicial = $('#fecha_inicial').val();
-		var nivel = $('#nivel').val();
+		var detectorInternet = $('#detectorInternet').val();
+		if(detectorInternet == 1){
+			var idEmp = parametroURL('idEmp');
+			var direccion = parametroURL('direccion'); 
+			var fecha_inicial = $('#fecha_inicial').val();
+			var nivel = $('#nivel').val();
+			
+			var fecha_final = $('#fecha_final').val();
 		
-		var fecha_final = $('#fecha_final').val();
-	
-		var ident = 3;
-		var ejecutarquery = 1;
-		$('#recibeReporteDetalle').html('<center><h3>Espere cargando informacion!!!</h3></center>');
-		$('#cargando').css('display','block');
-		$('#cargando2').css('display','block');
-		$.post("https://www.practisis.online/contabilidad/apiDoraApp/apiReportes.php",{ 
-			idEmp : idEmp , direccion : direccion , ident : ident , fecha_inicial : fecha_inicial , fecha_final : fecha_final , nivel : nivel
-		}).done(function(data){
-			// alert(data)
-			$('#cargando').css('display','none');
-			$('#cargando2').css('display','none');
-			if(data == 'error'){
-				alert ( "Oops , hay un error con el reporte que deseas ver, por favor contactate con soporte para que solucionen el inconveniente " );
-			}else{
-				$('#recibeReporteDetalle').html(data);
-			}
-		}).fail(function(xhr, status, error) {
-			$('#cargando').css('display','none');
-			$('#cargando2').css('display','none');
-			swal ( "Oops" ,  "Hay un error en tu reporte  "+status+" "+error+" " ,  "error" )
-		});	
+			var ident = 3;
+			var ejecutarquery = 1;
+			$('#recibeReporteDetalle').html('<center><h3>Espere cargando informacion!!!</h3></center>');
+			$('#cargando').css('display','block');
+			$('#cargando2').css('display','block');
+			$.post("https://www.practisis.online/contabilidad/apiDoraApp/apiReportes.php",{ 
+				idEmp : idEmp , direccion : direccion , ident : ident , fecha_inicial : fecha_inicial , fecha_final : fecha_final , nivel : nivel
+			}).done(function(data){
+				// alert(data)
+				$('#cargando').css('display','none');
+				$('#cargando2').css('display','none');
+				if(data == 'error'){
+					alert ( "Oops , hay un error con el reporte que deseas ver, por favor contactate con soporte para que solucionen el inconveniente " );
+				}else{
+					$('#recibeReporteDetalle').html(data);
+				}
+			}).fail(function(xhr, status, error) {
+				$('#cargando').css('display','none');
+				$('#cargando2').css('display','none');
+				swal ( "Oops" ,  "Hay un error en tu reporte  "+status+" "+error+" " ,  "error" )
+			});	
+		}else{
+			swal ( "Oops" ,  "No hay conexión a internet" ,  "error" )
+		}
 	}
 	ponerFechas();
 	function ponerFechas(){
@@ -715,7 +724,7 @@
 		clearInterval(t);
 		t=setInterval(function(){
 			checksession();
-		}, 60000);*/
+		}, 15000);*/
 
 		$('.datepicker').datepicker({dateFormat: 'yy-mm-dd',format:'yyyy-mm-dd',changeMonth: true,
 		changeYear: true});
@@ -875,12 +884,5 @@ function vermsjinter(){
 	}
 	setInterval(function () {
 		detectarConexion();
-	}, 60000);
+	}, 15000);
 </script>
-
-
-
-
-<script src="js/bootstrap-toggle.min.js"></script>
-<script type="text/javascript" src="js/sweetalert/sweetalert.min.js"></script>
-<script src="js/custom-file-input.js"></script>
