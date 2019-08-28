@@ -97,12 +97,12 @@
             <div id="inicio" style="display: block;">
               <div class="form-group">
                 <label for="inputUsernameEmail">Usuario</label>
-                <input type="text" class="form-control input-lg" placeholder="john@practisis.com" id="usuario" name="usuario">
+                <input type="text" class="form-control input-lg limpiar" placeholder="john@practisis.com" id="usuario" name="usuario">
               </div>
               <div class="form-group">
                 <!--<a class="pull-right" href="#" onclick="VerRecuperar();">Olvidaste la Contraseña?</a>-->
                 <label for="inputPassword">Contraseña</label>
-                <input type="password" class="form-control input-lg" id="pass" name="pass" placeholder="Super Secret">
+                <input type="password" class="form-control input-lg limpiar" id="pass" name="pass" placeholder="Super Secret">
               </div>
 
 
@@ -146,7 +146,7 @@
             </section>
 
             <div style="height:70px;"></div>
-            <div style="width: 100%;font-size: 16px;text-align: center;">Para crear una cuenta de Practisis, da <a href="registrar.php">click aquí</a></div>
+            <div style="width: 100%;font-size: 16px;text-align: center;">Para crear una cuenta da <a href="https://www.practisis.net/page/registrar.php" target = "_blank" >click aquí</a></div>
           </div>
 
           <div id="recupera" style="display: none;">
@@ -195,6 +195,7 @@
 				$.post("https://www.practisis.online/triggerLoginDoraApp.php",{ 
 						usuario : usuario , pass : pass
 				}).done(function(response){
+					$('.limpiar').val('');
 					if(response == 0){
 						$('#ok').html('no se encuentra al usuario');
 						$('#ok').css('display','block');
@@ -203,6 +204,13 @@
 							$('#ok1').css('display','none');
 						}, 2000);
 
+					}else if (response == 1){
+						$('#ok').html('El usuario ingresado no pertenece a dora');
+						$('#ok').css('display','block');
+						setTimeout(function(){
+							$('#ok').css('display','none');
+							$('#ok1').css('display','none');
+						}, 4000);
 					}else{
 						var splitResponse = response.split('|');
 
