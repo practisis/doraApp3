@@ -408,7 +408,7 @@
 									</div>
 								</div>
 								
-								<div class="row" id="dashboard_cuentas" style = "padding:50px !important;">
+								<div class="row" id="dashboard_cuentas" style = "">
 									<div class="col-md-6">
 										<div class="panel mini-box mini-box-cxp" style="border-bottom : 2px solid #d9dadf !important;" data="cxp" >
 											<div class="cerrar cerrar-cxp" data="cxp" style="display: none;">
@@ -469,23 +469,22 @@
 										</div>
 									</div>
 									
-									<div class="col-md-12" id="graficos-iconos" style="display:none;">
-										<div class="col-md-12" style="padding:20px 15px;">
-											<div class="col-md-4">
-												<table class="table table-responsive table-striped table-bordered" style = "padding:20px 15px;background-color:white;">
-													<thead>
-														<th id="campo1"></th>
-														<th id="campo3" style="display:none;"> Cantidad</th>
-														<th id="campo2"></th>
-													</thead>
-													<tbody id="datos">
+									<div class = "row" id="graficos-iconos" style="background-color:#ccc; padding-top: 15px; padding-bottom: 15px; display:none;">
+										<div class="col-md-12">
+											<table class="table table-responsive table-striped table-bordered" style = "background-color:white;">
+												<thead>
+													<th id="campo1"></th>
+													<th id="campo3" style="display:none;"> Cantidad</th>
+													<th id="campo2"></th>
+												</thead>
+												<tbody id="datos">
 
-													</tbody>
-												</table>
-											</div>
-											<div class="col-md-8" id="graficositem" style='min-height:400px;margin:0px; border:1px solid #DDD;'>
-											</div>
+												</tbody>
+											</table>
 										</div>
+										<br><hr><br>
+										<div class="col-md-12" id="graficositem" style='min-height:400px;margin:0px; border:1px solid #DDD;'>
+										</div>	
 									</div>
 								</div>
 								<br><br>
@@ -1273,11 +1272,12 @@ $(function() {
 
 					}
 					
-					var elemento = $("#graficos-iconos");
+					var elemento = $('#graficos-iconos');
 					var posicion = elemento.position();
 					var topContenedor = posicion.top;
 					
-					$("#content").animate({ scrollTop:   400 }, 600);
+					$("#content").animate({ scrollTop:   topContenedor }, 600);
+					//$( "#datos" ).effect( "highlight" , 500 );
 				} else {
 				  	$("#datos").html('');
 				}
