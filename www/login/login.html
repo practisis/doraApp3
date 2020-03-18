@@ -178,6 +178,16 @@
 
 <script>
 	$( document ).ready(function() {
+		var idEmp = localStorage.getItem("idEmp"); 
+		var direccion = localStorage.getItem("direccion"); 
+		var empresa = localStorage.getItem("empresa"); 
+		if(idEmp == ''){
+			
+		}else{
+		<!-- alert(idEmp) -->
+			window.location = "../dashboard.html?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+"";
+		}
+	
 		detectarConexion();
 	});
 	function triggerLogin(){
