@@ -102,6 +102,15 @@
 
 
 	$( document ).ready(function() {
+	
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, '0');
+		var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+		var yyyy = today.getFullYear();
+
+		today = yyyy+'-'+mm+'-'+dd;
+		<!-- alert(today); -->
+		$('#fecha_final').val(today);
 		calculaAnchoPagina();
 	});
 	$(function(){
@@ -955,6 +964,14 @@
 						
 					}
 				},errorCB,successCB);
+				
+				
+				setTimeout(function(){
+					google.charts.load('current', {'packages':['corechart']});
+					google.charts.setOnLoadCallback(drawVisualization);
+				}, 1500);
+				
+				
 			});
 		}else{
 			swal ( "Oops" ,  "No hay conexión a internet" ,  "error" )
