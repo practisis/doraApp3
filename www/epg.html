@@ -212,41 +212,43 @@
 						<span id='bajamenu' style='position:fixed; bottom:0px; left:190px; cursor:pointer; background-color:rgba(220,220,220,0.8); padding:5px; z-index:4; display:none;'><span class='fa fa-angle-double-down fa-2x' style='color:#337ab7; font-weight:bold;'></span></span>
 						<div class="slimScrollDiv" style="position: relative; width: auto; height: 100%;">
 							<ul id="nav">
-								
-								<li >
-									<a onclick = "enviarRuta(1)"  >
-										<i style="color: rgb(255, 255, 255); left: 170px;" class="icon-iconodora-02 menuItem">
-											<span class="icon-bg bg-transparent"></span>
-										</i>
-										<span data-i18n="Automático">Dashboard</span>
-									</a>
-								</li>	
 								<li>
-									<a onclick = "enviarRuta(2)">
+									<a onclick = "enviarRuta(1)" >
 										<i style="color: rgb(255, 255, 255); left: 170px;" class="icon-iconodora-06 menuItem">
 											<span class="icon-bg bg-transparent"></span>
 										</i>
-										<span data-i18n="Automático">Reportes</span>
+										<span data-i18n="Cerrar Sesión"></span>DASHBOARD
 									</a>
-								</li>	
+								</li>
 								
-								<li class = "active">
+								<li>
+									<a onclick = "enviarRuta(2)" >
+										<i style="color: rgb(255, 255, 255); left: 170px;" class="icon-iconodora-05 menuItem">
+											<span class="icon-bg bg-transparent"></span>
+										</i>
+										<span data-i18n="Cerrar Sesión"></span>REPORTES
+									</a>
+								</li>
+								
+								<li class = "open">
 									<a onclick = "enviarRuta(3)" >
+										<i style="color: rgb(255, 255, 255); left: 170px;" class="icon-iconodora-02 menuItem">
+											<span class="icon-bg bg-transparent"></span>
+										</i>
+										<span data-i18n="Cerrar Sesión"></span>EPG
+									</a>
+								</li>
+								
+								<li>
+									<a onclick = "enviarRuta(4)" >
 										<i style="color: rgb(255, 255, 255); left: 170px;" class="icon-iconodora-01 menuItem">
 											<span class="icon-bg bg-transparent"></span>
 										</i>
-										<span data-i18n="Automático">Epg</span>
+										<span data-i18n="Cerrar Sesión"></span>BALANCE
 									</a>
-								</li>	
+								</li>
 								
-								<li>
-									<a onclick = "enviarRuta(4)">
-										<i style="color: rgb(255, 255, 255); left: 170px;" class="icon-iconodora-04 menuItem">
-											<span class="icon-bg bg-transparent"></span>
-										</i>
-										<span data-i18n="Automático">Balance</span>
-									</a>
-								</li>	
+								
 								<li>
 									<a onclick = "enviarRuta(5)" >
 										<i style="color: rgb(255, 255, 255); left: 170px;" class="icon-iconodora-09 menuItem">
@@ -483,7 +485,9 @@
 			ruta = 'balance.html';
 			idr = '';
 		}else if(id == 5){
-			
+			localStorage.removeItem('idEmp');
+			localStorage.removeItem('direccion');
+			localStorage.removeItem('empresa');
 			ruta = 'login/login.html';
 			idr = '';
 			
@@ -495,7 +499,7 @@
 			setTimeout(function(){
 				sessionStorage.clear();
 				console.log('local storage limpia');
-				window.location = ""+ruta+"?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+""+idr+"";
+				window.location = ""+ruta+"";
 			}, 500);
 		}
 		
@@ -744,12 +748,12 @@
 			checksession();
 		}, 15000);*/
 
-		$('.datepicker').datepicker({dateFormat: 'yy-mm-dd',format:'yyyy-mm-dd',changeMonth: true,
-		changeYear: true});
-    	$('.datepicker').change(function(){
-    		$( ".datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
-    		$( ".datepicker" ).datepicker( "option", "format", "yyyy-mm-dd" );
-    	});
+		<!-- $('.datepicker').datepicker({dateFormat: 'yy-mm-dd',format:'yyyy-mm-dd',changeMonth: true, -->
+		<!-- changeYear: true}); -->
+    	<!-- $('.datepicker').change(function(){ -->
+    		<!-- $( ".datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" ); -->
+    		<!-- $( ".datepicker" ).datepicker( "option", "format", "yyyy-mm-dd" ); -->
+    	<!-- }); -->
 
         $(".form-control").attr("autocomplete","off");
 
@@ -805,7 +809,7 @@
 			location.href=URLactual+"&design="+version;
 		});
 
-		$('#fechad,#fechah,#fecha_compra,#fecha_inventario,#fechain,#fechaiess,#fechaout,#fechanac,#endDate,#startDate').datepicker({dateFormat:'yy-mm-dd',format:'yyyy-mm-dd',changeMonth: true,changeYear: true, autoclose: true});
+		<!-- $('#fechad,#fechah,#fecha_compra,#fecha_inventario,#fechain,#fechaiess,#fechaout,#fechanac,#endDate,#startDate').datepicker({dateFormat:'yy-mm-dd',format:'yyyy-mm-dd',changeMonth: true,changeYear: true, autoclose: true}); -->
 
 	});
 
