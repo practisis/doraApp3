@@ -191,3 +191,4 @@
 			swal ( "Oops" ,  "No hay conexión a internet" ,  "error" )
 		}
 	}
+ 
