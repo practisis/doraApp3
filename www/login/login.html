@@ -146,7 +146,8 @@
             </section>
 
             <div style="height:70px;"></div>
-              </div>
+            <div style="width: 100%;font-size: 16px;text-align: center;">Para crear una cuenta da <a href="https://www.practisis.net/page/registrar.php" target = "_blank" >click aquí</a></div>
+          </div>
 
           <div id="recupera" style="display: none;">
             <div class="form-group">
@@ -178,10 +179,22 @@
 
 <script>
 	$( document ).ready(function() {
-		
-	
 		detectarConexion();
+		saberConexionAnterior();
 	});
+	
+	function saberConexionAnterior(){
+		var idEmp = localStorage.getItem("idEmp");
+		var direccion = localStorage.getItem("direccion");
+		var empresa = localStorage.getItem("empresa");
+		if(idEmp == null || direccion == null || empresa == null ){
+			
+		}else{
+			window.location = "../dashboard.html?idEmp="+idEmp+"&direccion="+direccion+"&empresa="+empresa+"";
+		}
+		
+	}
+	
 	function triggerLogin(){
 		var detectorInternet = $('#detectorInternet').val();
 		if(detectorInternet == 1){
